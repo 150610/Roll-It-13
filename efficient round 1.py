@@ -48,7 +48,7 @@ if user_points < comp_points:
 
 # if user and computer have the same points, the user is player 1
 if user_points == comp_points:
-    print("You start because your initial roll was less than the computer\n")
+    print("You start because your initial roll was equal to the computer\n")
 
 # if the computer has fewer points, switch the computer to player 1
 else:
@@ -59,7 +59,23 @@ else:
 while player_1_points < 13 and player_2_points <13:
     print()
     input("Please <enter> to continue this round\n")
-    
-    #first person rolld the die and score is updated
+
+    # first person rolls the die and score is updated
     player_1_roll = random.randint(1, 6)
     player_1_points += player_1_roll
+
+    print(f"{first}: Rolled a {player_1_roll} - has {player_1_points} points")
+
+    # if the first person's score is over 13, end the game
+    if player_1_points >= 13:
+        break
+
+    # second person rolls the die (and score is updated)
+    player_2_roll=random.randint(1,6)
+    player_2_points += player_2_roll
+
+    print(f"{second}: Rolled a {player_2_roll} - has {player_2_points} points")
+
+    print(f"{first}: {player_1_points} | {second}: {player_2_points}")
+
+print("End of round")
